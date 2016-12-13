@@ -1,0 +1,22 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: Hello Word for AWS SAM
+Resources:
+  helloSam:
+    Properties:
+      CodeUri: s3://thebeatlecoder-artefacts/b5d9926707f2372bf853ecba4db73acf
+      Description: Hello World
+      Environment:
+        Variables:
+          FIRST_NAME: Scott
+      Events:
+        MyApi:
+          Properties:
+            Method: GET
+            Path: /hello
+          Type: Api
+      Handler: rest-api/hello/get/index.handler
+      MemorySize: 128
+      Runtime: nodejs4.3
+      Timeout: 10
+    Type: AWS::Serverless::Function
+Transform: AWS::Serverless-2016-10-31

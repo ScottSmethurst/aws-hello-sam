@@ -1,0 +1,14 @@
+{
+  "name": "hello-sam",
+  "version": "1.0.0",
+  "description": "none",
+  "main": "index.js",
+  "scripts": {
+    "package": "aws cloudformation package --template-file app.yaml --output-template-file .app-out.yaml --s3-bucket thebeatlecoder-artefacts",
+    "deploy": "aws cloudformation deploy --template-file .app-out.yaml --stack-name hello-sam --capabilities CAPABILITY_IAM"
+  },
+  "author": "thebeatlecoder",
+  "license": "ISC",
+  "dependencies": {
+  }
+}
